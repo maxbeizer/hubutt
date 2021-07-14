@@ -1,13 +1,13 @@
 name: generate-help
 on: [push]
 jobs:
-  load-help:
+  load_help:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
+    - uses: actions/checkout@v2
+    - uses: actions/setup-ruby@v1
       with:
         ruby-version: '2.7'
-      - name: Load help
-        run: |
-          ruby .github/bin/load_help.rb
+    - name: Load help
+      run: |
+        ruby .github/bin/load_help.rb
