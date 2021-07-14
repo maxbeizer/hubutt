@@ -10,4 +10,9 @@ jobs:
         ruby-version: '2.7'
     - name: Load help
       run: |
-        ruby .github/bin/load_help.rb
+        ruby .github/bin/load_help.rb > output.log
+    - name: Upload output file
+      uses: actions/upload-artifact@v2
+        with:
+          name: output-log-file
+          path: output.log
