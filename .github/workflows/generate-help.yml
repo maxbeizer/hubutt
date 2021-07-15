@@ -19,6 +19,7 @@ jobs:
         path: help.log
   commit_help:
     name: Commit help
+    needs: compile_help
     runs-on: ubuntu-latest
     steps:
     - uses: actions/download-artifact@v2
