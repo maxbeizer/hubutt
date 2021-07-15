@@ -6,8 +6,9 @@ layout: home
 ---
 <h1>Hubot Help</h1>
 
+      {{site.data | jsonify}}
 <ul>
-{% for help in site.data.helpcsv.help %}
+{% for help in site.data.help %}
   <li>
 		{{ help.command }}
     <a href="https://github.com/github/hubot-classic/blob/master/scripts/{{ help.filename }}">
