@@ -1,7 +1,7 @@
 name: generate-help
 on: [push]
 jobs:
-  load_help:
+  compile_help:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -10,9 +10,9 @@ jobs:
         ruby-version: '2.7'
     - name: Load help
       run: |
-        ruby .github/bin/load_help.rb > output.log
-    - name: Upload output file
+        ruby .github/bin/load_help.rb > help.log
+    - name: Upload help file
       uses: actions/upload-artifact@v2
       with:
-        name: output-log-file
-        path: output.log
+        name: help-log-file
+        path: help.log
