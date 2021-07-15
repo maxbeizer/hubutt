@@ -2,6 +2,7 @@ name: generate-help
 on: [push]
 jobs:
   compile_help:
+    name: Build help file
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -16,3 +17,23 @@ jobs:
       with:
         name: help-log-file
         path: help.log
+  commit_help:
+    name: Commit help
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download generated help files
+    - uses: actions/download-artifact@v2
+      with:
+        name: help-log-file
+    - uses: actions/checkout@v2
+      with:
+        ref: 'gh-pages'
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Uploaded new help docs
+    - name: "Run if changes have been detected"
+      if: steps.auto-commit-action.outputs.changes_detected == 'true'
+      run: echo "Changes detected!"
+    - name: "Run if no changes have been detected"
+      if: steps.auto-commit-action.outputs.changes_detected == 'false'
+      run: echo "No changes detected!"
