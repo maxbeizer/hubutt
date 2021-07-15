@@ -4,8 +4,10 @@
 
 layout: home
 ---
+<h1>Hubot Help</h1>
+
 <ul>
-{% for help in site.data.help %}
+{% for help in site.data.helpcsv.help %}
   <li>
 		{{ help.command }}
     <a href="https://github.com/github/hubot-classic/blob/master/scripts/{{ help.filename }}">
