@@ -1,0 +1,1 @@
+command,filename\nhubot ping,ping.coffee\nhubot echo <phrase> - Echos <phrase>,ping.coffee\nhubot time - Gets the current time,ping.coffee\nhubot die - Does a bad acting job,ping.coffee\n
