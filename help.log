@@ -1,0 +1,4 @@
+hubot ping
+hubot echo <phrase> - Echos <phrase>
+hubot time - Gets the current time
+hubot die - Does a bad acting job
