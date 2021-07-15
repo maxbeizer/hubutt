@@ -4,13 +4,12 @@
 
 layout: home
 ---
-<h1>Hubot Help</h1>
 <ul>
-{% for command in site.data.help %}
+{% for help in site.data.help %}
   <li>
-		{{ command.help }}
-    <a href="https://github.com/github/hubot-classic/blob/master/scripts/{{ command.filename }}">
-      {{ command.filename }}
+		{{ help.command }}
+    <a href="https://github.com/github/hubot-classic/blob/master/scripts/{{ help.filename }}">
+      {{ help.filename }}
     </a>
   </li>
 {% endfor %}
