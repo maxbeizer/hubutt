@@ -22,7 +22,7 @@ class ScriptLineProcessor
   private
 
   def make_csv_line(array)
-    array.join(',').concat('\n')
+    array.join(',').concat("\n")
   end
 end
 
