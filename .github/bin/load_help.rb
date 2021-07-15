@@ -9,14 +9,20 @@ class ScriptLineProcessor
   attr_reader :all_help
 
   def initialize
-    @all_help = +"#{HEADERS.join(',')}\n"
+    @all_help = +make_csv_line(HEADERS)
   end
 
   def call(line, filename)
     return unless line.match(/^#\s*hubot/)
 
     command = line.sub(/^#\s*/, '').chomp
-    @all_help << [command, filename].join(',').concat(',')
+    @all_help << make_csv_line([command, filename])
+  end
+
+  private
+
+  def make_csv_line(array)
+    array.join(',').concat('\n')
   end
 end
 

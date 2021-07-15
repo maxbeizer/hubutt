@@ -28,7 +28,7 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: help-csv-file
-        path: _data/help.csv
+        path: _data
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Uploaded new help docs
