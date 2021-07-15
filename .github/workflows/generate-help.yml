@@ -22,18 +22,12 @@ jobs:
     needs: compile_help
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/download-artifact@v2
-      with:
-        name: help-log-file
     - uses: actions/checkout@v2
       with:
         ref: 'gh-pages'
+    - uses: actions/download-artifact@v2
+      with:
+        name: help-log-file
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Uploaded new help docs
-    - name: "Run if changes have been detected"
-      if: steps.auto-commit-action.outputs.changes_detected == 'true'
-      run: echo "Changes detected!"
-    - name: "Run if no changes have been detected"
-      if: steps.auto-commit-action.outputs.changes_detected == 'false'
-      run: echo "No changes detected!"
