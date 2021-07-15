@@ -11,12 +11,12 @@ jobs:
         ruby-version: '2.7'
     - name: Load help
       run: |
-        ruby .github/bin/load_help.rb > help.log
+        ruby .github/bin/load_help.rb > help.csv
     - name: Upload help file
       uses: actions/upload-artifact@v2
       with:
-        name: help-log-file
-        path: help.log
+        name: help-csv-file
+        path: help.csv
   commit_help:
     name: Commit help
     needs: compile_help
@@ -27,7 +27,8 @@ jobs:
         ref: 'gh-pages'
     - uses: actions/download-artifact@v2
       with:
-        name: help-log-file
+        name: help-csv-file
+        path: _data/help.csv
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Uploaded new help docs
