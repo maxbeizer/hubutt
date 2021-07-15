@@ -2,13 +2,14 @@
 #!/usr/bin/env ruby
 
 SCRIPT_PATH = 'scripts/'
+HEADERS = %w[command filename].freeze
 
 # Convert lines of a script into output
 class ScriptLineProcessor
   attr_reader :all_help
 
   def initialize
-    @all_help = +''
+    @all_help = +"#{HEADERS.join(',')}\n"
   end
 
   def call(line, filename)
