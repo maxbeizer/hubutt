@@ -4,13 +4,12 @@
 
 layout: home
 ---
-<h1>Hubot Help</h1>
+# Hubot Help
 
-      {{site.data | jsonify}}
 <ul>
 {% for help in site.data.help %}
   <li>
-		{{ help.command }}
+		<code>{{ help.command | escape }}</code> =>
     <a href="https://github.com/github/hubot-classic/blob/master/scripts/{{ help.filename }}">
       {{ help.filename }}
     </a>
